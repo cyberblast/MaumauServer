@@ -19,13 +19,13 @@ Detailed Status:
 
 ## HELP WANTED! 
 
-My current setup: 
-Windows, vscode, node 10.15.2
+My current setup:  
+Windows, vscode, node 10.15.2  
 No additional global or local modules
 
 Issues so far:
 
-I can't seem to get it working correctly. It is running that far, but I keep getting vscode Typescript compiler warnings. Mainly due to usage of private class fields with a leading hash-sign:
+I can't seem to get esnext working correctly. It is running that far, but I keep getting vscode Typescript compiler warnings. Mainly due to usage of private class fields with a leading hash-sign:
 ```JavaScript
 class Card {
   #_color;
