@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "path": "/", "handler": "file", "content": "src/ui/index.html" },
+    { "path": "*", "handler": "file", "content": "src/ui/" },
+    { "path": "/shutdown", "handler": "module", "module": "src/api/server.js", "function": "stop" }
+  ]
+}

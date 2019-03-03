@@ -1,0 +1,19 @@
+{
+  "name": "maumau-server",
+  "version": "1.0.0",
+  "description": "Backend for 'MauMau' Card Game",
+  "main": "src/main.js",
+  "scripts": {
+    "main": "node --harmony src/main.js"
+  },
+  "keywords": [
+    "MauMau",
+    "Cards",
+    "Game",
+    "Server"
+  ],
+  "author": "Robert Rakowitz",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
