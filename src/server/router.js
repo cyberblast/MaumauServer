@@ -2,6 +2,7 @@ const fs = require("fs");
 const url = require('url');
 
 module.exports = class Router {
+  #fileRoot;
   #routes;
 
   constructor(configFile = './src/router.json'){
@@ -14,6 +15,7 @@ module.exports = class Router {
       // console.log(data.toString());
       const config = JSON.parse(data.toString());
       self.#routes = config.routes;
+      self.#fileRoot = config.fileRoot || '';
     });
   }
 
@@ -35,11 +37,12 @@ module.exports = class Router {
       }
       // TODO: better/faster cloning
       route = JSON.parse(JSON.stringify(defaultRoute));
-      route.content += pathname.substr(1);
+      route.content = route.content ? route.content + pathname.substr(1) : pathname.substr(1);
     }
 
     if(route.handler === 'file'){
-      this.navigateFile(server, request, response, route.content);
+      const path = this.#fileRoot + route.content;
+      this.navigateFile(server, request, response, path);
     } else if(route.handler === 'module'){
       this.navigateModule(server, request, response, route.module, route.function);
     }
@@ -66,7 +69,7 @@ module.exports = class Router {
       response.end();
     });
   }
-  
+
   navigateModule(server, request, response, module, func){
     const module = require(module);
     module[func](server, request, response);
