@@ -52,7 +52,7 @@ Next Steps:
 **2. Identification**
   * No Authentication
   * Allow to enter/change a name
-  * Save IP/Name Pair ([local storage(https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage))
+  * Save IP/Name Pair ([local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage))
   * Maybe "My Settings"
 
 **3. Chat**
