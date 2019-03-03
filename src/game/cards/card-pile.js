@@ -10,9 +10,6 @@ module.exports = class CardPile {
   get count(){
     return this.#cards.length;
   }
-  // get internalArray(){
-  //   return this.#cards;
-  // }
   addTopCard(card){
     this.#cards.push(card);
   }
