@@ -30,7 +30,7 @@ module.exports = class Router {
         response.end();
         return;
       }
-      // todo: better/faster cloning
+      // TODO: better/faster cloning
       route = JSON.parse(JSON.stringify(defaultRoute));
       route.content += pathname.substr(1);
     }
