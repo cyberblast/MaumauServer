@@ -47,25 +47,25 @@ Next Steps:
   * If there is a game running and the current user is a player redirect to game page (stub)
   * If there is no game running allow users to opt in to the list of players
   * Start game button to start game and lock home
-  * Some JS polling if the game has started
+  * Some JS polling if the game has started  
 **2. Identification**
   * No Authentication
   * Allow to enter/change a name
   * Save IP/Name Pair ([local storage(https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage))
-  * Maybe "My Settings"
+  * Maybe "My Settings"  
 **2. Chat**
   * Simple chat
-  * Should be sticky even upon navigate (frames? js-handled navigate (ajax style)?)
+  * Should be sticky even upon navigate (frames? js-handled navigate (ajax style)?)  
 **3. Game UI**
   * Cards
   * Table
   * Options
-  * Poll for Updates
+  * Poll for Updates  
 **4. Game Logic**
   * Allowed cards
   * Play a card
-  * Special Cards
+  * Special Cards  
 **5. Admin Page**
   * Kill Game Session
-  * Stop Server
+  * Stop Server  
 **6. Multiple Game Sessions**
