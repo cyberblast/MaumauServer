@@ -8,7 +8,7 @@ This is a project I mainly like to work at when I like to do something but actua
 
 Goal: Develop a fully playable [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(card_game)) card game
 
-Way: I'd like to develop a mostly native node server. That means - I Don't like to use existing modules/packages/extensions as far as possible and reasonable (if that word is applicable at all). 
+Way: I'd like to develop a mostly native node server. That means - I don't like to use existing modules/packages/extensions as far as possible and reasonable (if that word is applicable at all). 
 I'd also like to use esnext JS as far as possible. 
 
 Detailed Status: 
@@ -35,4 +35,4 @@ class Card {
 
 Also template strings / string interpolation don't work at all. I simply don't get it why that is! 
 
-ANY HINT IS HIGHLY APPRECIATED!
+**ANY HINT IS HIGHLY APPRECIATED!**
