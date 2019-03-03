@@ -1,10 +1,10 @@
 # Maumau Server
 
-State: Incomplete
-Priority: Low
+State: Incomplete  
+Priority: Low  
 Perspective: Unclear
 
-This is a project I mainly like to work at when I like to do something but actually don't know what. 
+This is a project I mainly like to work at when I like to do something but actually don't know what. There is no deadline or any need to complete this.
 
 Goal: Develop a fully playable [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(card_game)) card game
 
