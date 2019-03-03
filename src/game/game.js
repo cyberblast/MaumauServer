@@ -1,9 +1,4 @@
-const Card = require('./cards/card.js');
-const CardColor = require('./cards/card-color.js');
 const CardControl = require('./cards/card-control.js');
-const CardPile = require('./cards/card-pile.js');
-
-const INITIAL_HAND_SIZE = 7
 
 module.exports = class Game {
   #cards;
@@ -15,7 +10,7 @@ module.exports = class Game {
 
     this.#playerCount = playerCount;
     this.#cards = new CardControl(playerCount);
-    this.#cards.giveHands(INITIAL_HAND_SIZE);
+    this.#cards.giveHands(global.config.rules.initialHandSize);
     this.#currentPlayer = Math.floor(Math.random() * this.#playerCount);
   }
   next(){

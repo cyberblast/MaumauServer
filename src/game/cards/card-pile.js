@@ -37,10 +37,7 @@ module.exports = class CardPile {
   static newCardPackage(){
     let newCards = [];
     for (const color in colors) {
-      // console.log("Processing color:" + color);
       for (const value in values) {
-        // console.log("Processing value:" + value);
-        // const c = new card(color, value);
         newCards.push(new card(color, value));
       }
     }

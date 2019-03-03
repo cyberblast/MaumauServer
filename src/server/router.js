@@ -4,7 +4,7 @@ const url = require('url');
 module.exports = class Router {
   #routes;
 
-  constructor(configFile = 'router.json'){
+  constructor(configFile = './src/router.json'){
     const self = this;
     fs.readFile(configFile, function (err, data) {
       if (err) {
@@ -19,11 +19,14 @@ module.exports = class Router {
 
   navigate(server, request, response){
     const pathname = url.parse(request.url).pathname;
+    const client = request.socket.remoteAddress.split(':').pop();    
+    console.log('Request for "' + pathname + '" received from ' + client);
+
     const byPath = route => route.path === pathname;
-    const byDefault = route => route.path === '*';
     let route = this.#routes.find(byPath);
 
     if(route === undefined){
+      const byDefault = route => route.path === '*';
       const defaultRoute = this.#routes.find(byDefault);
       if( defaultRoute === undefined ){
         response.writeHead(404, {'Content-Type': 'text/html'});
@@ -63,6 +66,7 @@ module.exports = class Router {
       response.end();
     });
   }
+  
   navigateModule(server, request, response, module, func){
     const module = require(module);
     module[func](server, request, response);

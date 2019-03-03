@@ -1,5 +1,4 @@
 var http = require('http');
-var fs = require('fs');
 var url = require('url');
 var Router = require('./router.js');
 
@@ -26,9 +25,6 @@ module.exports = class GameServer{
   }
 
   process(request, response){
-    const pathname = url.parse(request.url).pathname;
-    const client = request.socket.remoteAddress.split(':').pop();
-    console.log('Request for "' + pathname + '" received from ' + client);
     this.#router.navigate(this, request, response);
   }
 }

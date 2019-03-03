@@ -1,10 +1,6 @@
-const Colors = require('./card-color.js');
-const Values = require('./card-value.js');
-const Card = require('./card.js');
 const CardPile = require('./card-pile');
 
-module.exports = class CardControl {
-  
+module.exports = class CardControl {  
   #drawPile;
   #discardPile;
   #playerPiles;
