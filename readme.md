@@ -17,26 +17,6 @@ Detailed Status:
 * UI: 0%
 * API: 0%
 
-## HELP WANTED! 
-
-My current setup:  
-Windows, vscode, node 10.15.2  
-No additional global or local modules
-
-Issues so far:
-
-I can't seem to get esnext working correctly. It is running that far, but I keep getting vscode Typescript compiler warnings. Mainly due to usage of private class fields with a leading hash-sign:
-```JavaScript
-class Card {
-  #_color;
-  #_value;
-}
-```
-
-Also template strings / string interpolation don't work at all. I simply don't get it why that is! 
-
-**ANY HINT IS HIGHLY APPRECIATED!**
-
 ## Roadmap
 
 Next Steps: 

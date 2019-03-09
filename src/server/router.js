@@ -22,7 +22,7 @@ module.exports = class Router {
   navigate(server, request, response){
     const pathname = url.parse(request.url).pathname;
     const client = request.socket.remoteAddress.split(':').pop();    
-    console.log('Request for "' + pathname + '" received from ' + client);
+    console.log(`Request for "${pathname}" received from ${client}`);
 
     const byPath = route => route.path === pathname;
     let route = this.#routes.find(byPath);
@@ -59,19 +59,19 @@ module.exports = class Router {
         console.log(err);
         response.writeHead(404, {'Content-Type': 'text/html'});
       } else {
-        // TODO: Set Content Type {'Content-Type': 'text/html'}
-        // or Binary (favicon) or whatever...
         if( path.endsWith('.html') )
           response.writeHead(200, {'Content-Type': 'text/html'});	
         else response.writeHead(200);	
+        // TODO: Set correct Content Type {'Content-Type': 'text/html'}
+        // or Binary (favicon) or whatever...
         response.write(data);		
       }
       response.end();
     });
   }
 
-  navigateModule(server, request, response, module, func){
-    const module = require(module);
-    module[func](server, request, response);
+  navigateModule(server, request, response, modPath, func){
+    const mod = require(modPath);
+    mod[func](server, request, response);
   }
 }

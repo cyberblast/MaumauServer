@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-      "target": "esnext",
-      "checkJs": false,
-      "experimentalDecorators": true,
-      "module": "esnext",
-      "lib": ["esnext", "scripthost"],
-      "strict": true
+    "target": "esnext",
+    "checkJs": false,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "lib": ["esnext", "scripthost"]
   },
   "exclude": [
-      "node_modules",
-      "dist"
+    "node_modules",
+    "dist"
   ]
 }
