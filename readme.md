@@ -23,7 +23,7 @@ First, before deciding to contribute to this repository read and accept LICENSE.
 
 Questions, ideas, problems may actually be created as a thread in [the issues section](https://github.com/cyberblast/MaumauServer/issues). Or reach out to me per [email](mailto://git@cyberblast.org).
 
-If you 'd like to work on the code please create a new branch, make you changes/additions and finally create a pull request to merge to dev branch. 
+If you 'd like to work on the code please create a new branch, make your changes/additions and finally create a pull request to merge to dev branch. 
 
 To create a new branch: 
 
