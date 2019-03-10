@@ -1,12 +1,11 @@
 var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.Ajax = function(doc, onSuccess, onError){
+Maumau.Ajax = function(){
   let requests = 0;
   let processed = false;
   let completed = false;
   let xmlDoc = null;
-  parse();
 
-  function parse(){
+  this.parseDocument = function(doc, onSuccess, onError){
     // find tags in doc & replace them
     const wrapper = `<parserRoot>${doc}</parserRoot>`;
     if (window.DOMParser){
@@ -22,19 +21,22 @@ Maumau.Ajax = function(doc, onSuccess, onError){
       forEachCollectionItem(serverTags, tag => {
         const path = tag.hasAttribute('path') ? tag.getAttribute('path') : null;
         const args = tag.hasAttribute('args') ? tag.getAttribute('args') : null;
+        // console.log('resolving server tag for path: ' + path);
         requests++;
         get(
           path, 
           args, 
           getResult => {
             // parse response recursive
-            new Maumau.Ajax(
+            // console.log(`server tag for "${path}" resolved!`);
+            const ajax = new Maumau.Ajax();
+            ajax.parseDocument(
               getResult, 
               result => {
                 if(result === null ) tag.outerHTML = getResult; // no deeper tag found
                 else tag.outerHTML = result;
                 requests--;
-                if(processed === true && requests === 0) complete(true);
+                if(processed === true && requests === 0) complete(onSuccess, true);
               },
               error => onError(error)
             );
@@ -42,14 +44,14 @@ Maumau.Ajax = function(doc, onSuccess, onError){
           getError => {
             requests--;
             onError(getError);
-            if(processed === true && requests === 0) complete(true);
+            if(processed === true && requests === 0) complete(onSuccess, true);
           })
       });
       processed = true;
       if(requests === 0 && completed === false){
         complete(true);
       }
-    } else complete(false);
+    } else complete(onSuccess, false);
   }
 
   function forEachCollectionItem(collection, callback){
@@ -58,10 +60,10 @@ Maumau.Ajax = function(doc, onSuccess, onError){
     }
   }
 
-  function complete(replace){
+  function complete(handler, replace){
     completed = true;
-    if(replace) onSuccess(xmlDoc.getElementsByTagName('parserRoot')[0].innerHTML);
-    else onSuccess(null);
+    if(replace) handler(xmlDoc.getElementsByTagName('parserRoot')[0].innerHTML);
+    else handler(null);
   }
 
   function get(path, args, onGetSuccess, onGetError){
@@ -77,17 +79,7 @@ Maumau.Ajax = function(doc, onSuccess, onError){
   }
 }
 
-function parseDom(){
-  new Maumau.Ajax(
-    window.document.getElementsByTagName("body")[0].innerHTML, 
-    result => {
-      if( result != null ) window.document.getElementsByTagName("body")[0].innerHTML = result;
-    },
-    error => console.log(error)
-  );
-}
-
-function RunOnDocCompleted(callback){
+function runOnDocCompleted(callback){
   let readyStateCheckInterval = setInterval(function() {
     if (document.readyState === "complete") {
         clearInterval(readyStateCheckInterval);
@@ -95,6 +87,16 @@ function RunOnDocCompleted(callback){
     }
   }, 90);
 }
-
-RunOnDocCompleted(parseDom);
-  
+runOnDocCompleted(() => {
+  const start = (typeof performance === "undefined" || !performance ) ? Date.now() : performance.now();
+  const _ajax = new Maumau.Ajax();
+  _ajax.parseDocument(
+    window.document.getElementsByTagName("body")[0].innerHTML, 
+    result => {
+      if( result != null ) window.document.getElementsByTagName("body")[0].innerHTML = result;
+      const end = (typeof performance === "undefined" || !performance ) ? Date.now() : performance.now();
+      console.log(`Complete ajax parseDocument process took ${end - start} milliseconds`);
+    },
+    error => console.log(error)
+  );
+});
