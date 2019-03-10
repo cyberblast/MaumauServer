@@ -3,6 +3,7 @@
   "routes": [
     { "path": "/", "handler": "file", "content": "index.html" },
     { "path": "*", "handler": "file" },
-    { "path": "/shutdown", "handler": "module", "module": "src/api/server.js", "function": "stop" }
+    { "path": "/api/shutdown", "handler": "module", "module": "./src/api/server.js", "function": "stop" },
+    { "path": "/api/version", "handler": "module", "module": "./src/api/info.js", "function": "version" }
   ]
 }

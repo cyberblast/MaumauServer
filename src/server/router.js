@@ -1,5 +1,6 @@
 const fs = require("fs");
 const url = require('url');
+const path = require('path');
 
 module.exports = class Router {
   #fileRoot;
@@ -64,14 +65,17 @@ module.exports = class Router {
         else response.writeHead(200);	
         // TODO: Set correct Content Type {'Content-Type': 'text/html'}
         // or Binary (favicon) or whatever...
-        response.write(data);		
+        response.write(data);
       }
       response.end();
     });
   }
 
   navigateModule(server, request, response, modPath, func){
-    const mod = require(modPath);
+    console.log(`loading module at '${modPath}'`);
+    const normalized = path.resolve(modPath);
+    const mod = require(normalized);
     mod[func](server, request, response);
   }
+
 }
