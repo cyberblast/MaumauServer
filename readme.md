@@ -35,16 +35,17 @@ To create a new branch:
   ```
 
 2. Create a new branch locally and remote
-  
-  You can create a branch for a certain topic (`feature/<topic>`) (preferred) or a general branch for your work (`user/<yourGithubUserName>`) (for continuous development).
 
   ```Shell
-  git branch user/<yourGithubUserName>
-  git checkout user/<yourGithubUserName>
-  git push --set-upstream origin user/<yourGithubUserName>
+  git branch <topic>
+  git checkout <topic>
+  git push --set-upstream origin <topic>
   ```
+  (please replace \<topic\> with the name for your branch)
+  After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls). 
 
-  After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls).
+  Your changes will be reviewed and eventually squash-merged into dev. The branch will always be deleted upon merge.  
+  Please ensure there are no merge conflicts prior to creating the PR. In some cases a rebase to dev may be a good idea. 
 
 ## Prerequisites
 
