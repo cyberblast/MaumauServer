@@ -41,7 +41,7 @@ To create a new branch:
   git checkout <topic>
   git push --set-upstream origin <topic>
   ```
-  (please replace \<topic\> with the name for your branch)
+  *(please replace \<topic\> with the name for your branch)*  
   After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls). 
 
   Your changes will be reviewed and eventually squash-merged into dev. The branch will always be deleted upon merge.  
