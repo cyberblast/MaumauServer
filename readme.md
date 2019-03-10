@@ -50,6 +50,12 @@ To create a new branch:
 
 It is recommended to use a very current version of node.js (like v10.15.2).
 
+## Commands & Settings
+
+To start the game server call `npm run main`. Afterwards you can access it using a browser at: http://127.0.0.1/
+
+You can change the server port (default: 80) in `src/game.json` (prior to starting the game server).
+
 ## Roadmap
 
 Next Steps: 
