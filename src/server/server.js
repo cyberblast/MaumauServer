@@ -1,5 +1,4 @@
 var http = require('http');
-var url = require('url');
 var Router = require('./router.js');
 
 module.exports = class GameServer{

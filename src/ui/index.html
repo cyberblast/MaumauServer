@@ -1,6 +1,18 @@
 <html>
- <head>
-   <title>Maumau</title>
- </head>
- Hello World!
+  <head>
+    <title>Maumau</title>
+    <link rel="stylesheet" href="/style/main.css" />
+    <script type="text/javascript" src="/script/ajax.js"></script>
+  </head>
+  <body>
+    <div class="root">
+      <server path="/components/header.html"></server>
+      <div class="below-header">
+        <div class="main-container">
+          <server path="/components/home.html"></server>
+        </div>
+        <server path="/components/chat.html"></server>
+      </div>
+    </div>
+  </body>
 </html>
