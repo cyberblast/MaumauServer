@@ -28,23 +28,23 @@ If you 'd like to work on the code please create a new branch, make you changes/
 To create a new branch: 
 
 1. Checkout dev and ensure it's up to date
-
-```
-git checkout dev
-git pull
-```
+  
+  ```Shell
+  git checkout dev
+  git pull
+  ```
 
 2. Create a new branch locally and remote
+  
+  You can create a branch for a certain topic (`feature/<topic>`) or a general branch for your work (`user/<yourGithubUserName>`).
 
-You can create a branch for a certain topic (`feature/<topic>`) or a general branch for your work (`user/<yourGithubUserName>`).
+  ```Shell
+  git branch user/<yourGithubUserName>
+  git checkout user/<yourGithubUserName>
+  git push --set-upstream origin user/<yourGithubUserName>
+  ```
 
-```
-git branch user/<yourGithubUserName>
-git checkout user/<yourGithubUserName>
-git push --set-upstream origin user/<yourGithubUserName>
-```
-
-After you completed you work you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls).
+  After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls).
 
 ## Roadmap
 
