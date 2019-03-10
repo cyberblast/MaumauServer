@@ -46,6 +46,10 @@ To create a new branch:
 
   After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls).
 
+## Prerequisites
+
+It is recommended to use a very current version of node.js (like v10.15.2).
+
 ## Roadmap
 
 Next Steps: 

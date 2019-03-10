@@ -12,8 +12,8 @@
     "Game",
     "Server"
   ],
-  "author": "Robert Rakowitz",
-  "license": "ISC",
+  "author": "git@cyberblast.org",
+  "license": "MIT",
   "devDependencies": {},
   "dependencies": {}
 }
