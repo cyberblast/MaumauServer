@@ -17,7 +17,7 @@ Detailed Status:
 * UI: 0%
 * API: 0%
 
-## Collaboration
+## Contribution & Collaboration
 
 First, before deciding to contribute to this repository read and accept LICENSE.txt & CONTRIBUTING.txt. 
 
