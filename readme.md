@@ -17,6 +17,45 @@ Detailed Status:
 * UI: 0%
 * API: 0%
 
+## Collaboration
+
+First, before deciding to contribute to this repository read and accept LICENSE.txt & CONTRIBUTING.txt. 
+
+Questions, ideas, problems may actually be created as a thread in [the issues section](https://github.com/cyberblast/MaumauServer/issues). Or reach out to me per [email](mailto://git@cyberblast.org).
+
+If you 'd like to work on the code please create a new branch, make your changes/additions and finally create a pull request to merge to dev branch. 
+
+To create a new branch: 
+
+1. Checkout dev and ensure it's up to date
+  
+  ```Shell
+  git checkout dev
+  git pull
+  ```
+
+2. Create a new branch locally and remote
+  
+  You can create a branch for a certain topic (`feature/<topic>`) (preferred) or a general branch for your work (`user/<yourGithubUserName>`) (for continuous development).
+
+  ```Shell
+  git branch user/<yourGithubUserName>
+  git checkout user/<yourGithubUserName>
+  git push --set-upstream origin user/<yourGithubUserName>
+  ```
+
+  After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls).
+
+## Prerequisites
+
+It is recommended to use a very current version of node.js (like v10.15.2).
+
+## Commands & Settings
+
+To start the game server call `npm run main`. Afterwards you can access it using a browser at: http://127.0.0.1/
+
+You can change the server port (default: 80) in `src/game.json` (prior to starting the game server).
+
 ## Roadmap
 
 Next Steps: 
