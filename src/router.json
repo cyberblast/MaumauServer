@@ -4,6 +4,7 @@
     { "path": "/", "handler": "file", "content": "index.html" },
     { "path": "*", "handler": "file" },
     { "path": "/api/shutdown", "handler": "module", "module": "./src/api/server.js", "function": "stop" },
-    { "path": "/api/version", "handler": "module", "module": "./src/api/info.js", "function": "version" }
+    { "path": "/api/version", "handler": "module", "module": "./src/api/info.js", "function": "version" },
+    { "path": "/api/ip", "handler": "module", "module": "./src/api/info.js", "function": "ip" }
   ]
 }

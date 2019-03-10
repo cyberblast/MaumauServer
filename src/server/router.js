@@ -22,7 +22,7 @@ module.exports = class Router {
 
   navigate(server, request, response){
     const pathname = url.parse(request.url).pathname;
-    const client = request.socket.remoteAddress.split(':').pop();    
+    const client = request.socket.remoteAddress.split(':').pop();
     console.log(`Request for "${pathname}" received from ${client}`);
 
     const byPath = route => route.path === pathname;
