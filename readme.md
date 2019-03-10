@@ -36,7 +36,7 @@ To create a new branch:
 
 2. Create a new branch locally and remote
   
-  You can create a branch for a certain topic (`feature/<topic>`) or a general branch for your work (`user/<yourGithubUserName>`).
+  You can create a branch for a certain topic (`feature/<topic>`) (preferred) or a general branch for your work (`user/<yourGithubUserName>`) (for continuous development).
 
   ```Shell
   git branch user/<yourGithubUserName>
