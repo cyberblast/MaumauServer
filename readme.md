@@ -11,11 +11,7 @@ Goal: Develop a fully playable [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(c
 Way: I'd like to develop a mostly native node server. That means - I don't like to use existing modules/packages/extensions as far as possible and reasonable (if that word is applicable at all). 
 I'd also like to use esnext JS as far as possible. 
 
-Detailed Status: 
-* Web Server: *Initial* implementation complete, including a custom router allowing to redirect to files (UI) or module functions (API). More to come.
-* Game: Implemented some general card classes & controllers, but not much yet!
-* UI: 0%
-* API: 0%
+Status: Far from reached.
 
 ## Contribution & Collaboration
 
@@ -53,7 +49,7 @@ It is recommended to use a very current version of node.js (like v10.15.x).
 
 ## Commands & Settings
 
-To start the game server call `npm run main`. Afterwards you can access it using a browser at: http://127.0.0.1/
+To start the game server call `npm run maumau`. Afterwards you can access it using a browser at: http://127.0.0.1/
 
 You can change the server port (default: 80) in `src/game.json` (prior to starting the game server).
 
