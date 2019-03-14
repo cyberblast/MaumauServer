@@ -10,7 +10,7 @@ module.exports = class Game {
 
     this.#playerCount = playerCount;
     this.#cards = new CardControl(playerCount);
-    this.#cards.giveHands(global.config.rules.initialHandSize);
+    this.#cards.giveHands(global.config.game.rules.initialHandSize);
     this.#currentPlayer = Math.floor(Math.random() * this.#playerCount);
   }
   next(){

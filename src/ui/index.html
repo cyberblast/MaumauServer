@@ -2,19 +2,20 @@
   <head>
     <title>Maumau</title>
     <link rel="stylesheet" href="/style/main.css" />
-    <script type="text/javascript" src="/script/ajax.js"></script>
-    <script type="text/javascript" src="/script/me.js"></script>
-    <script type="text/javascript" src="/script/docParser.js"></script>
-    <script type="text/javascript" src="/script/main.js"></script>
+    <script type="text/javascript" src="/script/system/xhr.js"></script>
+    <script type="text/javascript" src="/script/system/docParser.js"></script>
+    <script type="text/javascript" src="/script/system/component.js"></script>
+    <script type="text/javascript" src="/script/content/me.js"></script>
+    <script type="text/javascript" src="/script/index.js"></script>
   </head>
   <body>
     <div class="root">
-      <server path="/components/header.html"></server>
+      <server path="/markup/header.html"></server>
       <div class="below-header">
         <div class="main-container">
-          <server path="/components/home.html"></server>
+          <server path="/markup/home.html"></server>
         </div>
-        <server path="/components/chat.html"></server>
+        <server path="/markup/chat.html"></server>
       </div>
     </div>
   </body>

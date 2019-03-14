@@ -6,8 +6,11 @@ module.exports = class Router {
   #fileRoot;
   #routes;
 
-  constructor(configFile = './src/router.json'){
+  constructor(configFile = './src/config/router.json'){
     const self = this;
+    self.#routes = global.config.router.routes;
+    self.#fileRoot = global.config.router.fileRoot || '';
+    
     fs.readFile(configFile, function (err, data) {
       if (err) {
           console.log(err.stack);
@@ -15,8 +18,6 @@ module.exports = class Router {
       }
       // console.log(data.toString());
       const config = JSON.parse(data.toString());
-      self.#routes = config.routes;
-      self.#fileRoot = config.fileRoot || '';
     });
   }
 

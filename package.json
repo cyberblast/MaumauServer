@@ -1,10 +1,10 @@
 {
   "name": "maumau-server",
   "version": "1.0.0",
-  "description": "Backend for 'MauMau' Card Game",
-  "main": "src/main.js",
+  "description": "Web Server for 'MauMau' Card Game",
+  "main": "src/boot.js",
   "scripts": {
-    "main": "node --harmony src/main.js"
+    "maumau": "node --harmony src/boot.js"
   },
   "keywords": [
     "MauMau",

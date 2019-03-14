@@ -49,7 +49,7 @@ To create a new branch:
 
 ## Prerequisites
 
-It is recommended to use a very current version of node.js (like v10.15.2).
+It is recommended to use a very current version of node.js (like v10.15.x).
 
 ## Commands & Settings
 
@@ -77,8 +77,8 @@ Next Steps:
 
 **3. Chat**
   * Simple chat
-  * Should be sticky even upon navigate (frames? js-handled navigate (ajax style)?)
-
+  * Should be sticky even upon navigate
+  
 **4. Game UI**
   * Cards
   * Table

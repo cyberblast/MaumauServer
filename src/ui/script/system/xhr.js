@@ -1,5 +1,5 @@
 var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.Ajax = function(){
+Maumau.Xhr = function(){
   /** getArgs: {path, args, onSuccess, onError} */
   this.get = function(getArgs){
     if(!getArgs.path) return // TODO: Error
@@ -13,5 +13,5 @@ Maumau.Ajax = function(){
     xhr.open('GET', getArgs.path, true);
     xhr.send();
   }
-
 }
+Maumau.xhr = new Maumau.Xhr();
