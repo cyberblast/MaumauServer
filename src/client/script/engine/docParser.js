@@ -1,5 +1,8 @@
 var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.DocParser = function(){
+Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} : Maumau.Client;
+Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
+
+Maumau.Client.Engine.DocParser = function(){
   let wrapped = false;
     
   // find tags in doc & replace them

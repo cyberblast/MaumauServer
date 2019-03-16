@@ -5,7 +5,7 @@ module.exports = class Config{
   #basePath;
   event = new events.EventEmitter();
   completed = 0;
-  constructor(basePath = 'src/config/'){
+  constructor(basePath = 'src/'){
     this.basePath = basePath;
     this.loadFile('game.json', config => {
       this.game = config;

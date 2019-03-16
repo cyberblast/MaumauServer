@@ -1,5 +1,5 @@
-const Config = require('./config/config.js')
-const GameServer = require('./server/server.js');
+const Config = require('./server/config.js')
+const GameServer = require('./server/web/server.js');
 
 // add to global namespace to reuse within deeper modules
 global.config = new Config();

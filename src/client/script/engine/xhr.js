@@ -1,7 +1,10 @@
 var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.Xhr = function(){
+Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} : Maumau.Client;
+Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
+
+Maumau.Client.Engine.Xhr = {
   /** getArgs: {path, args, onSuccess, onError} */
-  this.get = function(getArgs){
+  get: function(getArgs){
     if(!getArgs.path) return // TODO: Error
     const xhr = new XMLHttpRequest();  
     xhr.onreadystatechange = function() {
@@ -14,4 +17,3 @@ Maumau.Xhr = function(){
     xhr.send();
   }
 }
-Maumau.xhr = new Maumau.Xhr();

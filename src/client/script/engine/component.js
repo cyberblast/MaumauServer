@@ -1,6 +1,8 @@
 var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
+Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} : Maumau.Client;
+Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
 
-Maumau.Component = {
+Maumau.Client.Engine.Component = {
 /**Load server- & client-side computed page components */
   load: function(){
     const start = (typeof performance === "undefined" || !performance ) ? Date.now() : performance.now();
@@ -19,7 +21,7 @@ Maumau.Component = {
       callback: (element, onHandled) => {
         const path = element.hasAttribute('path') ? element.getAttribute('path') : null;
         const args = element.hasAttribute('args') ? element.getAttribute('args') : null;
-        Maumau.xhr.get({ path, args,
+        Maumau.Client.Engine.Xhr.get({ path, args,
           onSuccess: getResult => {
             // parse response recursive
             // console.log(`server tag for "${path}" resolved!`);
@@ -30,7 +32,7 @@ Maumau.Component = {
               else element.outerHTML = subResult;
               onHandled();
             }
-            const subParser = new Maumau.DocParser();
+            const subParser = new Maumau.Client.Engine.DocParser();
             subParser.run(subArgs);
           },
           onError: err => {
@@ -60,7 +62,7 @@ Maumau.Component = {
       }
     });
 
-    const parser = new Maumau.DocParser();
+    const parser = new Maumau.Client.Engine.DocParser();
     parser.run(parseArgs);
   }
 }

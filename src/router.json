@@ -1,0 +1,10 @@
+{
+  "fileRoot": "src/client/",
+  "routes": [
+    { "path": "/", "handler": "file", "content": "index.html" },
+    { "path": "*", "handler": "file" },
+    { "path": "/api/shutdown", "handler": "module", "module": "./src/server/api/server.js", "function": "stop" },
+    { "path": "/api/version", "handler": "module", "module": "./src/server/api/server.js", "function": "version" },
+    { "path": "/api/ip", "handler": "module", "module": "./src/server/api/server.js", "function": "ip" }
+  ]
+}

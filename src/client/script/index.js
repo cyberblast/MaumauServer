@@ -9,5 +9,5 @@ function runOnDocCompleted(callback){
 }
 
 runOnDocCompleted(() => {
-  Maumau.Component.load();
+  Maumau.Client.Engine.Component.load();
 });

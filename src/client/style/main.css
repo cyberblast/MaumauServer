@@ -63,12 +63,12 @@ html, body{
   flex-flow: row;
 }
 .main-container{
-  flex: 1 1 auto;
+  flex: 3 3 auto;
   display: block;
   padding: 10px;
 }
 .chat-container{
-  flex: 0 0 200px;
+  flex: 1 0 200px;
   border-left: 1px solid silver;
 }
 .vertical-placeholder{

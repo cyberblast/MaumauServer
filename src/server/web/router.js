@@ -6,7 +6,7 @@ module.exports = class Router {
   #fileRoot;
   #routes;
 
-  constructor(configFile = './src/config/router.json'){
+  constructor(configFile = './src/router.json'){
     const self = this;
     self.#routes = global.config.router.routes;
     self.#fileRoot = global.config.router.fileRoot || '';
