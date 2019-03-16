@@ -3,8 +3,8 @@
   "routes": [
     { "path": "/", "handler": "file", "content": "index.html" },
     { "path": "*", "handler": "file" },
-    { "path": "/api/shutdown", "handler": "module", "module": "./src/server/api/server.js", "function": "stop" },
-    { "path": "/api/version", "handler": "module", "module": "./src/server/api/server.js", "function": "version" },
-    { "path": "/api/ip", "handler": "module", "module": "./src/server/api/server.js", "function": "ip" }
+    { "path": "/api/server/shutdown", "handler": "module", "module": "./src/server/api/server.js", "function": "stop" },
+    { "path": "/api/server/version", "handler": "module", "module": "./src/server/api/server.js", "function": "version" },
+    { "path": "/api/server/ip", "handler": "module", "module": "./src/server/api/server.js", "function": "ip" }
   ]
 }

@@ -26,7 +26,7 @@ Maumau.Client.Engine.DocParser = function(){
       const elemCallback = handler.callback;
       const processElement = function(element){
         openRequests++;
-        elemCallback(element, onElementHandled);
+        elemCallback(element, onElementHandled, parseArgs.onError);
       }
       let elements = xmlDoc.getElementsByTagName(tag);
       if(elements && elements.length > 0){

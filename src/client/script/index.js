@@ -8,6 +8,8 @@ function runOnDocCompleted(callback){
   }, 90);
 }
 
+const components = new Maumau.Client.Engine.Component();
+components.registerClientComponent('Maumau.Client.Service.Server', Maumau.Client.Service.Server);
 runOnDocCompleted(() => {
-  Maumau.Client.Engine.Component.load();
+  components.load();
 });
