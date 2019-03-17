@@ -16,6 +16,7 @@ Status: Far from reached.
 ## Contribution & Collaboration
 
 First, before deciding to contribute to this repository read and accept LICENSE.txt & CONTRIBUTING.txt. 
+Any contribution requires and assumes full consent.
 
 Questions, ideas, problems may actually be created as a thread in [the issues section](https://github.com/cyberblast/MaumauServer/issues). Or reach out to me per [email](mailto://git@cyberblast.org).
 

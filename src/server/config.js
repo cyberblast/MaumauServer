@@ -11,14 +11,10 @@ module.exports = class Config{
       this.game = config;
       this.fileCompleted();
     });
-    this.loadFile('router.json', config => {
-      this.router = config;
-      this.fileCompleted();
-    });
   }
   fileCompleted(){
     this.completed++;
-    if(this.completed === 2){
+    if(this.completed === 1){
       this.event.emit('loaded');
     }
   }

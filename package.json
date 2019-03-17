@@ -15,5 +15,7 @@
   "author": "git@cyberblast.org",
   "license": "MIT",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@cyberblast/webserver": "0.0.2"
+  }
 }
