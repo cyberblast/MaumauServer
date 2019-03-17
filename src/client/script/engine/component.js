@@ -25,22 +25,13 @@ Maumau.Client.Engine.Component = function(){
     parseArgs.tagHandler.push({ 
       tag: 'server', 
       callback: (element, onHandled, onError) => {
-        const path = element.hasAttribute('path') ? element.getAttribute('path') : null;
+        const filePath = element.hasAttribute('path') ? element.getAttribute('path') : null;
         const args = element.hasAttribute('args') ? element.getAttribute('args') : null;
-        Maumau.Client.Engine.Xhr.get({ path, args,
+        Maumau.Client.Engine.Xhr.get({ 
+          path: filePath, 
+          args: args,
           onSuccess: getResult => {
-            // parse response recursive
-            // console.log(`server tag for "${path}" resolved!`);
-            subArgs = Object.assign({}, parseArgs);
-            subArgs.document = getResult;
-            subArgs.onSuccess = function(subResult){
-              if(subResult === null ) element.outerHTML = getResult; // no deeper tag found
-              else element.outerHTML = subResult;
-              onHandled();
-            };
-            subArgs.onError = onError;
-            const subParser = new Maumau.Client.Engine.DocParser();
-            subParser.run(subArgs);
+            onHandled(getResult); 
           },
           onError: (err) => {
             onError(err);
@@ -58,13 +49,24 @@ Maumau.Client.Engine.Component = function(){
           const action = element.getAttribute('action');
           const component = clientComponents[name];
           if(component !== undefined){
-            const component = clientComponents[name];
-            if(component[action] !== undefined)
-              component[action](result => element.outerHTML = result);
+            if(component[action] !== undefined){
+              console.log(`Resolving CientScript component ${name}.${action}()`);
+              component[action](result => {
+                console.log(`${name}.${action}() resolved to "${result}".`);
+                onHandled(result); 
+              });
+            } else {
+              onError(`Unable to resolve function name "${action}" for clientScript component "${name}"!`);
+              onHandled();
+            }
+          } else {
+            onError(`Unable to resolve clientScript component reference to "${name}"!`);
+            onHandled();
           }
+        } else {
+          onError(`ClientScript tag found without required "component" attribute!`);
+          onHandled();
         }
-        // TODO: handle all those else cases (log errors)
-        onHandled();
       }
     });
 

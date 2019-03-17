@@ -1,15 +1,20 @@
+let appVersion = undefined;
+
 module.exports = class Server{
   static version(server, request, response){
-    response.write("0.0.0");
-    response.end();
+    if(appVersion === undefined){
+      console.log('loading version from package.json');
+      let appPack = require('../../../package.json');
+      appVersion = appPack.version;
+    }
+    return appVersion;
   }
   static ip(server, request, response){
-    response.write(request.socket.remoteAddress.split(':').pop());
-    response.end();
+    return request.socket.remoteAddress.split(':').pop();
   }
   static stop(server, request, response){
     response.write("Stopping server!");
-    server.stop();
     response.end();
+    server.stop();
   }
 }

@@ -4,45 +4,76 @@ Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.C
 
 Maumau.Client.Engine.DocParser = function(){
   let wrapped = false;
+  let openRequests = 0;
+  let allRequestsSubmitted = false;
+  let completed = false;
+  let xmlDoc;
+  let args;
     
   // find tags in doc & replace them
   this.run = function(parseArgs){
-    let openRequests = 0;
-    let allRequestsSubmitted = false;
-    let completed = false;
-    let xmlDoc = getXmlDocument(parseArgs);
-    const onElementHandled = function(){
-      openRequests--;
-      if(allRequestsSubmitted === true && openRequests === 0) {
-        completed = true;
-        wrapped ? 
-        parseArgs.onSuccess(xmlDoc.getElementsByTagName('parserRoot')[0].innerHTML) : 
-        parseArgs.onSuccess(null);
-      }
-    }
+    args = parseArgs;
+    openRequests = 0;
+    allRequestsSubmitted = false;
+    completed = false;
+    xmlDoc = getXmlDocument(args);
 
-    parseArgs.tagHandler.forEach(handler => {
-      const tag = handler.tag;
-      const elemCallback = handler.callback;
-      const processElement = function(element){
-        openRequests++;
-        elemCallback(element, onElementHandled, parseArgs.onError);
-      }
-      let elements = xmlDoc.getElementsByTagName(tag);
+    args.tagHandler.forEach(handler => {
+      let elements = xmlDoc.getElementsByTagName(handler.tag);
       if(elements && elements.length > 0){
+
+        const processElement = function(element){
+          // count open requests
+          openRequests++;
+          handler.callback(
+            element, 
+            newElem => { 
+              // onHandledCallback
+              if(newElem){ 
+                // a substitute has been found
+                // parse new html snippet again
+                const parser = new Maumau.Client.Engine.DocParser();
+                // start recursion
+                parser.run({
+                  document: newElem,
+                  tagHandler: args.tagHandler,
+                  onSuccess: (parsed) => { 
+                    // take final snippet from recursion
+                    element.outerHTML = parsed;
+                    openRequests--;
+                    checkForCompletion();
+                  },
+                  onError: args.onError
+                });
+              } else { 
+                // no new snippet found
+                openRequests--;
+                checkForCompletion();
+              }            
+            }, 
+            args.onError
+          );
+        }
         forEachCollectionItem(elements, processElement);
       }
-    });      
+    });
     allRequestsSubmitted = true;
-    if(openRequests === 0 && completed === false){
-      wrapped ? parseArgs.onSuccess(xmlDoc.getElementsByTagName('parserRoot')[0].innerHTML) : parseArgs.onSuccess(null);
+    checkForCompletion();
+  }
+
+  function checkForCompletion(){
+    if(openRequests === 0 && allRequestsSubmitted === true && completed === false) {
+      completed = true;
+      wrapped ? 
+      args.onSuccess(xmlDoc.getElementsByTagName('parserRoot')[0].innerHTML) : 
+      args.onSuccess(xmlDoc);
     }
   }
 
-  function getXmlDocument(parseArgs){
+  function getXmlDocument(){
     let xmlDoc;
-    if(typeof(parseArgs.document) === 'string'){
-      const wrapper = `<parserRoot>${parseArgs.document}</parserRoot>`;
+    if(typeof(args.document) === 'string'){
+      const wrapper = `<parserRoot>${args.document}</parserRoot>`;
       wrapped = true;
       if (window.DOMParser){
         let domParser = new DOMParser();
@@ -52,7 +83,7 @@ Maumau.Client.Engine.DocParser = function(){
         xmlDoc.async = false;
         xmlDoc.loadXML(wrapper);
       }
-    } else xmlDoc = parseArgs.document;
+    } else xmlDoc = args.document;
     return xmlDoc;
   }
 

@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\src\\main.js",
+      "program": "${workspaceFolder}\\src\\boot.js",
       "runtimeArgs": ["--harmony"]
     }
   ]
