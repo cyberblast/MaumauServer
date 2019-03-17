@@ -16,6 +16,6 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "@cyberblast/webserver": "0.0.2"
+    "@cyberblast/webserver": "0.0.3"
   }
 }
