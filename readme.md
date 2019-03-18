@@ -18,31 +18,7 @@ Status: Far from reached.
 First, before deciding to contribute to this repository read and accept LICENSE.txt & CONTRIBUTING.txt. 
 Any contribution requires and assumes full consent.
 
-Questions, ideas, problems may actually be created as a thread in [the issues section](https://github.com/cyberblast/MaumauServer/issues). Or reach out to me per [email](mailto://git@cyberblast.org).
-
-If you 'd like to work on the code please create a new branch, make your changes/additions and finally create a pull request to merge to dev branch. 
-
-To create a new branch: 
-
-1. Checkout dev and ensure it's up to date
-  
-  ```Shell
-  git checkout dev
-  git pull
-  ```
-
-2. Create a new branch locally and remote
-
-  ```Shell
-  git branch <topic>
-  git checkout <topic>
-  git push --set-upstream origin <topic>
-  ```
-  *(please replace \<topic\> with the name for your branch)*  
-  After you completed your work, you can create a new pull request [here](https://github.com/cyberblast/MaumauServer/pulls). 
-
-  Your changes will be reviewed and eventually squash-merged into dev. The branch will always be deleted upon merge.  
-  Please ensure there are no merge conflicts prior to creating the PR. In some cases a rebase to dev may be a good idea. 
+Please see [this instructions](https://github.com/cyberblast/MaumauServer/wiki/Contribution-&-Collaboration) about how to commit code changes.
 
 ## Prerequisites
 
