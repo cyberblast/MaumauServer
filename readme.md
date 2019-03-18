@@ -28,7 +28,7 @@ It is recommended to use a very current version of node.js (like v10.15.x).
 
 To start the game server call `npm run maumau`. Afterwards you can access it using a browser at: http://127.0.0.1/
 
-You can change the server port (default: 80) in `src/game.json` (prior to starting the game server).
+You can change the server port (default: 80) in `webserver.json` (prior to starting the game server).
 
 ## Roadmap
 
