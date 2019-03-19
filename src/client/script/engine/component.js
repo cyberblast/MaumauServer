@@ -9,7 +9,7 @@ Maumau.Client.Engine.Component = function(){
     clientComponents[name] = component;
   }
 
-/**Load server- & client-side computed page components */
+  /**Load server- & client-side computed page components */
   this.load = function(){
     const start = (typeof performance === "undefined" || !performance ) ? Date.now() : performance.now();
     const parseArgs = {
