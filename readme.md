@@ -1,17 +1,10 @@
 # Maumau Server
 
-State: Incomplete  
-Priority: Low  
-Perspective: Unclear
-
 This is a project I mainly like to work at when I like to do something but actually don't know what. There is no deadline or any need to complete this.
 
 Goal: Develop a fully playable [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(card_game)) card game
 
-Way: I'd like to develop a mostly native node server. That means - I don't like to use existing modules/packages/extensions as far as possible and reasonable (if that word is applicable at all).  
-I'd also like to use esnext JS as far as possible. 
-
-Status: Far from reached.
+Way: I'd like to develop a mostly native node server. That means - I don't like to use existing modules/packages/extensions as far as possible.  
 
 ## Contribution & Collaboration
 
@@ -22,13 +15,13 @@ Please see [this instructions](https://github.com/cyberblast/MaumauServer/wiki/C
 
 ## Prerequisites
 
-It is recommended to use a very current version of node.js (like v10.15.x).
+Due to usage of some esnext features, it is recommended to use a very current version of node.js (like v10.15.x).
 
 ## Dependencies
 
 Some components are better off in a separate repository, developed separately with it's own focus and consumed via npm. This list may grow during development...
 
-*Webserver*:  [repository](https://github.com/cyberblast/WebServer). [npm package](https://www.npmjs.com/package/@cyberblast/webserver)
+[Webserver](https://github.com/cyberblast/WebServer)
 
 ## Commands & Settings
 
