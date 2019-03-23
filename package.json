@@ -1,21 +1,34 @@
 {
   "name": "maumau-server",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Web Server for 'MauMau' Card Game",
-  "main": "src/boot.js",
-  "scripts": {
-    "maumau": "node --harmony src/boot.js"
-  },
+  "author": "cyberblast <git@cyberblast.org>",
+  "license": "MIT",
   "keywords": [
     "MauMau",
     "Cards",
     "Game",
     "Server"
   ],
-  "author": "git@cyberblast.org",
-  "license": "MIT",
-  "devDependencies": {},
+  "main": "src/boot.js",
+  "scripts": {
+    "maumau": "node --harmony src/boot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyberblast/MaumauServer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cyberblast/MaumauServer/issues"
+  },
+  "homepage": "https://github.com/cyberblast/MaumauServer#readme",
+  "engines": {
+    "node": "*"
+  },
   "dependencies": {
+    "@cyberblast/config": "^0.0.2",
     "@cyberblast/webserver": "^0.1.5"
-  }
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
 }
