@@ -1,7 +1,7 @@
 let appVersion = undefined;
 
 module.exports = class Server{
-  static version(server, request, response){
+  static version(serverContext){
     if(appVersion === undefined){
       console.log('loading version from package.json');
       let appPack = require('../../../package.json');
@@ -9,12 +9,12 @@ module.exports = class Server{
     }
     return appVersion;
   }
-  static ip(server, request, response){
-    return request.socket.remoteAddress.split(':').pop();
+  static ip(serverContext){
+    return serverContext.request.socket.remoteAddress.split(':').pop();
   }
-  static stop(server, request, response){
-    response.write("Stopping server!");
-    response.end();
-    server.stop();
+  static stop(serverContext){
+    serverContext.response.write("Stopping server!");
+    serverContext.response.end();
+    serverContext.server.stop();
   }
 }

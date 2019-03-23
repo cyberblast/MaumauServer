@@ -2,27 +2,24 @@ const fs = require("fs");
 const events = require('events');
 
 module.exports = class Config{
-  #basePath;
   event = new events.EventEmitter();
-  completed = 0;
-  constructor(basePath = 'src/'){
-    this.basePath = basePath;
-    this.loadFile('game.json', config => {
+  #complete = false;
+  constructor(filePath = 'game.json'){
+    this.loadFile(filePath, config => {
       this.game = config;
-      this.fileCompleted();
-    });
-  }
-  fileCompleted(){
-    this.completed++;
-    if(this.completed === 1){
+      this.complete = true;
       this.event.emit('loaded');
-    }
+    });
   }
   ready(callback){
     this.event.on('loaded', callback);
+    if(this.complete === true){ 
+      // has been loaded already
+      callback();
+    }
   }
-  loadFile(path, complete){
-    fs.readFile(this.basePath + path, function (err, data) {
+  loadFile(filePath, complete){
+    fs.readFile(filePath, function (err, data) {
       if (err) {
           console.log(err.stack);
           return;
