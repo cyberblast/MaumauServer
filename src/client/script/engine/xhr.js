@@ -3,11 +3,16 @@ Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} :
 Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
 
 Maumau.Client.Engine.Xhr = {
+  
   /** getArgs: {path, args, onSuccess, onError} */
   get: function(getArgs){
-    responseError = request => {
-      return `${request.status} ${request.statusText}${request.responseText !== '' ? '\n\r' : ''}${request.responseText}`;
-    }
+    const responseError = xhr => {
+      const headerError = xhr.getResponseHeader('Error');
+      const message = headerError || xhr.responseText;
+      if(message !== null && message !== '')
+        return `${xhr.status} ${xhr.statusText}\n\r${message}`;
+      else return `${xhr.status} ${xhr.statusText}`;
+    };
     if(!getArgs.path) return // TODO: Error
     const xhr = new XMLHttpRequest();  
     xhr.onreadystatechange = function() {
