@@ -26,6 +26,20 @@ module.exports = class CardPile {
     if( this.count === 0 ) return null;
     return this.#cards.pop(card);
   }
+  take(card){
+    if( this.count === 0 ) return null;
+    const index = this.#cards.findIndex(c => c.value === card.value && c.color === card.color);
+    if( index < 0 ) return null;
+    return this.#cards.splice(index, 1)[0];
+  }
+  takeIndex(index){
+    if( index < 0 || index >= this.count) return null;
+    return this.#cards.splice(index, 1)[0];
+  }
+  view(index){
+    if( index < 0 || index >= this.count) return null;
+    return this.#cards[index];
+  }
   takeRandom(){
     if( this.count === 0 ) return null;
     let index = Math.floor(Math.random()*this.count);
@@ -58,7 +72,10 @@ module.exports = class CardPile {
     return a.compareValue - b.compareValue;
   }
   showCards(){
-    return this.#cards.slice().sort(this.compare);
+    return this.#cards.slice()
+  }
+  includes(card){
+    return undefined !== this.#cards.find(c => c.value === card.value && c.color === card.color);
   }
 }
   
