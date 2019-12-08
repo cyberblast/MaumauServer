@@ -51,8 +51,14 @@ module.exports = class CardPile {
     }
     this.#cards = newpile;
   }
+  sort(){
+    this.#cards.sort(this.compare)
+  }
+  compare(a, b){
+    return a.compareValue - b.compareValue;
+  }
   showCards(){
-    return this.#cards.slice();
+    return this.#cards.slice().sort(this.compare);
   }
 }
   

@@ -1,11 +1,12 @@
-const config = require('@cyberblast/config')
-const server = require('@cyberblast/webserver');
+const config = require('@cyberblast/config');
 
 const settingsRdy = settings => {
+  global.config = settings;
+  const server = require('@cyberblast/webserver');
   server.onError(console.error);
   server.start('./src/webserver.json');
 }
-global.config = config.load(
+config.load(
   console.error,
   settingsRdy,
   './src/game.json');

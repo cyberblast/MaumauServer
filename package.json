@@ -12,7 +12,8 @@
   ],
   "main": "src/boot.js",
   "scripts": {
-    "maumau": "node --harmony src/boot.js"
+    "maumau": "node --harmony src/boot.js",
+    "call": "node --harmony src/testclient/call.js"
   },
   "repository": {
     "type": "git",
