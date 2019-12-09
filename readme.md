@@ -19,7 +19,7 @@ Please see [this instructions](https://github.com/cyberblast/MaumauServer/wiki/C
 
 ## Commands & Settings
 
-To start the game server call `npm run maumau`. Afterwards you can access it using a browser at: http://127.0.0.1/
+To start the game server call `npm run server`. Afterwards you can access it using a browser at: http://127.0.0.1/
 
 To request an api endpoint, use `node call <pathToApiEndpoint>`. E.g. `node call game/state` or `node call game/start`.  
 Using VS Code, you will have to open a second terminal to do that. 

@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {
+      "name": "all",
+      "console": true
+    }
+  ]
+}

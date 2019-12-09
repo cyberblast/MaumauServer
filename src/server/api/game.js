@@ -1,5 +1,5 @@
 const gameLogic = require('../logic/game/game');
-const config = require('@cyberblast/config');
+const Config = require('@cyberblast/config');
 
 let currentGame = null;
 
@@ -8,17 +8,14 @@ module.exports = class Game{
     if(currentGame === null || currentGame.state === 'closed') return 'no game running';
     return `Game running for ${currentGame.playerCount} players. Current turn: player ${currentGame.currentPlayer + 1}`
   }
-  static start(){
+  static async start(){
     if(currentGame !== null && currentGame.state !== 'closed') return 'Can\'t start a second game!';
-    
-    const loaded = gameCfg => {
-      currentGame = new gameLogic(gameCfg, 2);
-    }
-    config.load(
-      console.error,
-      loaded,
-      './src/game.json');
-    return 'Starting a new game...';
+
+    const config = new Config('./src/game.json');
+    const settings = await config.load();    
+    currentGame = new gameLogic(settings, 2);
+
+    return 'New game started';
   }
   static stop(){
     if(currentGame === null || currentGame.state === 'closed') return 'No game running!';

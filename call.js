@@ -1,5 +1,5 @@
 const http = require('http');
-const config = require('@cyberblast/config');
+const Config = require('@cyberblast/config');
 
 if (process.argv.length < 3) {
   console.log("missing args");
@@ -18,7 +18,10 @@ const onData = function(chunk) {
   content += chunk;
 };
 
-const settingsRdy = settings => {
+async function call(){
+  const config = new Config('./src/webserver.json');
+  const settings = await config.load();
+
   const url = `http://127.0.0.1:${settings.server.port}/api`;
 
   if( process.argv.length == 3){  
@@ -48,7 +51,6 @@ const settingsRdy = settings => {
   }
 }
 
-global.config = config.load(
-  console.error,
-  settingsRdy,
-  './src/webserver.json');
+call().catch(e => {
+  console.error(e);
+});
