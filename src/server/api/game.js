@@ -12,7 +12,7 @@ module.exports = class Game{
     if(currentGame !== null && currentGame.state !== 'closed') return 'Can\'t start a second game!';
 
     const config = new Config('./src/game.json');
-    const settings = await config.load();    
+    const settings = await config.load();
     currentGame = new gameLogic(settings, 2);
 
     return 'New game started';
