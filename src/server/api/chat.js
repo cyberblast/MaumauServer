@@ -6,6 +6,11 @@ module.exports = class ChatApi{
     const sinceId = serverContext.data;
     // todo: check for valid uuid
     const clientIp = serverContext.request.socket.remoteAddress.split(':').pop();
+    serverContext.logger.log({
+      category: 'chat',
+      severity: 'Verbose',
+      message: `${clientIp} requested messages`
+    });
     return JSON.stringify(chat.getMessages(clientIp, sinceId));
   }
   
@@ -14,6 +19,11 @@ module.exports = class ChatApi{
     // todo: check for valid contract
     if(send != null) send = JSON.parse(send);
     const clientIp = serverContext.request.socket.remoteAddress.split(':').pop();
+    serverContext.logger.log({
+      category: 'chat',
+      severity: 'Info',
+      message: `${clientIp}: ${send.text}`
+    });
     return JSON.stringify(chat.addMessage(clientIp, send.lastId, send.text));
   }
 }

@@ -70,7 +70,26 @@ html, body{
 .chat-container{
   flex: 1 0 200px;
   border-left: 1px solid silver;
+  
+  display: flex;
+  flex-flow: column;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+.chat-log{
+  flex: 100 1 auto;
+}
+.chat-input{
+  flex: 1 0 16px;
+  border-top: 1px solid silver;
+  padding: 8px;
+  font-size: 16px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .vertical-placeholder{
   transform: rotate(-60deg);
   text-align: center;
