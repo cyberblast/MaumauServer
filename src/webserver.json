@@ -7,8 +7,8 @@
     "fileRoot": "./src/web",
     "apiRoot": "./src/server/api",
     "routes": [
-      { "path": "/", "handler": "file", "content": "/index.html" },
       { "path": "/api/:module/:function", "handler": "module"},
+      { "path": "/", "handler": "file", "content": "/index.html" },
       { "path": "*", "handler": "file" }
     ]
   }

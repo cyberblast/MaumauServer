@@ -16,7 +16,7 @@ module.exports = class ChatApi{
   
   static send(serverContext){
     let send = serverContext.data;
-    // todo: check for valid contract
+    // todo: check for valid object
     if(send != null) send = JSON.parse(send);
     const clientIp = serverContext.request.socket.remoteAddress.split(':').pop();
     serverContext.logger.log({

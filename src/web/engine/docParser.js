@@ -1,8 +1,6 @@
-var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} : Maumau.Client;
-Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
+export default DocParser;
 
-Maumau.Client.Engine.DocParser = function(){
+function DocParser(){
   let wrapped = false;
   let openRequests = 0;
   let allRequestsSubmitted = false;
@@ -32,7 +30,7 @@ Maumau.Client.Engine.DocParser = function(){
               if(newElem){ 
                 // a substitute has been found
                 // parse new html snippet again
-                const parser = new Maumau.Client.Engine.DocParser();
+                const parser = new DocParser();
                 // start recursion
                 parser.run({
                   document: newElem,

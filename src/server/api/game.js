@@ -3,10 +3,12 @@ const Config = require('@cyberblast/config');
 
 let currentGame = null;
 
+// todo: all actions need to return SOA response
 module.exports = class Game{
   static state(){
     if(currentGame === null || currentGame.state === 'closed') return 'no game running';
     return `Game running for ${currentGame.playerCount} players. Current turn: player ${currentGame.currentPlayer + 1}`
+    // todo: return a state object (tbd)
   }
   static async start(){
     if(currentGame !== null && currentGame.state !== 'closed') return 'Can\'t start a second game!';
@@ -16,6 +18,7 @@ module.exports = class Game{
     currentGame = new gameLogic(settings, 2);
 
     return 'New game started';
+    // todo: return a boolean
   }
   static stop(){
     if(currentGame === null || currentGame.state === 'closed') return 'No game running!';

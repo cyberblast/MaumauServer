@@ -9,7 +9,7 @@ module.exports = class Server{
     serverContext.logger.log({
       category: 'server',
       severity: 'Verbose',
-      message: `Server API version called`,
+      message: `Server API request: version`,
       data: appVersion
     });
     return appVersion;
@@ -19,7 +19,7 @@ module.exports = class Server{
     serverContext.logger.log({
       category: 'server',
       severity: 'Verbose',
-      message: `Server API ip requested`,
+      message: `Server API request: ip`,
       data: ip
     });
     return ip;
@@ -28,7 +28,7 @@ module.exports = class Server{
     serverContext.logger.log({
       category: 'server',
       severity: 'Verbose',
-      message: `Server API stop requested`
+      message: `Server API request: stop`
     });
     serverContext.response.write("Stopping server!");
     serverContext.response.end();

@@ -1,17 +1,6 @@
-/**Execute code as soon as loading Window.document completed */
-function runOnDocCompleted(callback){
-  let readyStateCheckInterval = setInterval(function() {
-    if (document.readyState === "complete") {
-        clearInterval(readyStateCheckInterval);
-        callback();
-    }
-  }, 90);
-}
-// todo: extract engine to separate repository
-const components = new Maumau.Client.Engine.Component();
+import Component from '../engine/component.js';
+import Server from './service/server.js'
 
-components.registerClientComponent('Maumau.Client.Service.Server', Maumau.Client.Service.Server);
-
-runOnDocCompleted(() => {
-  components.load();
-});
+const components = new Component();
+components.registerClientComponent('Maumau.Server', Server);
+components.load();
