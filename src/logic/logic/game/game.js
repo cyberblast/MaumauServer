@@ -1,4 +1,4 @@
-const CardControl = require('./cards/card-control.js');
+const CardControl = require('./cards/card-control.js.js');
 
 module.exports = class Game {
   #cards;

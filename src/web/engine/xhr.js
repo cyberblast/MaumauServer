@@ -1,5 +1,14 @@
 export { Xhr as default }
 
+
+function responseError(xhr) {
+  const headerError = xhr.getResponseHeader('Error');
+  const message = headerError || xhr.responseText;
+  if(message !== null && message !== '')
+    return `${xhr.status} ${xhr.statusText}\n\r${message}`;
+  else return `${xhr.status} ${xhr.statusText}`;
+};
+
 const Xhr = {
   /**
    * @callback messageCallback
@@ -19,14 +28,10 @@ const Xhr = {
    * @param {XhrArgs} args
    */
   get: function(args){
-    const responseError = xhr => {
-      const headerError = xhr.getResponseHeader('Error');
-      const message = headerError || xhr.responseText;
-      if(message !== null && message !== '')
-        return `${xhr.status} ${xhr.statusText}\n\r${message}`;
-      else return `${xhr.status} ${xhr.statusText}`;
-    };
-    if(!args.path) return // TODO: Error
+    if(args === undefined || args.path === undefined) {
+      console.log('Error: Xhr.get requires a path argument!');
+      return;
+    }
     const xhr = new XMLHttpRequest();  
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
@@ -34,7 +39,7 @@ const Xhr = {
         else if(args.onError) args.onError(responseError(xhr));
       }
     }
-    xhr.open('GET', args.path, true);
-    xhr.send();
+    xhr.open(args.body ? 'POST' : 'GET', args.path, true);
+    xhr.send(args.body);
   }
 }

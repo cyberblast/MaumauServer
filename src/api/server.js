@@ -3,7 +3,7 @@ let appVersion = undefined;
 module.exports = class Server{
   static version(serverContext){
     if(appVersion === undefined){
-      let appPack = require('../../../package.json');
+      let appPack = require('../../package.json');
       appVersion = appPack.version;
     }
     serverContext.logger.log({

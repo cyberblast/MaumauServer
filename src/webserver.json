@@ -5,7 +5,7 @@
   },
   "router": {
     "fileRoot": "./src/web",
-    "apiRoot": "./src/server/api",
+    "apiRoot": "./src/api",
     "routes": [
       { "path": "/api/:module/:function", "handler": "module"},
       { "path": "/", "handler": "file", "content": "/index.html" },

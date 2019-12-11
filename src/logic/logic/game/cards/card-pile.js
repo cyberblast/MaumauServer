@@ -1,6 +1,6 @@
-const colors = require('./card-color.js');
-const values = require('./card-value.js');
-const card = require('./card.js');
+const colors = require('./card-color.js.js');
+const values = require('./card-value.js.js');
+const card = require('./card.js.js');
 
 module.exports = class CardPile {
   #cards;

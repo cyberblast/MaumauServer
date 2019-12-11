@@ -2,6 +2,8 @@ html, body{
   box-sizing: border-box;
   height: 100%;
   margin: 0px;
+  font-family: 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 .root{
   display: flex;
@@ -75,6 +77,7 @@ html, body{
   flex-flow: column;
   
   overflow: hidden;
+  overflow-y: auto;
   text-overflow: ellipsis;
 }
 .chat-log{
@@ -89,6 +92,28 @@ html, body{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.chatboard{
+  padding: 2px;
+}
+.chatItem{
+  font-size: 14px;
+  margin: 2px;
+}
+.chatTime{
+  font-style: italic;
+}
+.chatSender{
+  font-weight: 600;
+}
+/*
+
+  return `<div class="chatItem">
+    <span class="chatTime">${item.time}</span>
+    <span class="chatSender">${item.client}</span>
+    <span class="chatText">${item.text}</span>
+    </div>`;
+
+*/
 
 .vertical-placeholder{
   transform: rotate(-60deg);

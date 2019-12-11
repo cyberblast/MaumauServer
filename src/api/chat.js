@@ -1,4 +1,4 @@
-const Chat = require('../chat/chat.js');
+const Chat = require('../logic/chat/chat');
 const chat = new Chat();
 
 module.exports = class ChatApi{

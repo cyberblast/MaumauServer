@@ -1,6 +1,6 @@
 <div class="chat-container">
   <div class="chat-log">
-    <div class="vertical-placeholder">Area for Chat</div>
+    <clientScript component="Maumau.Chat" action="board"></clientScript>
   </div>
-  <div class="chat-input" contenteditable="true" style="outline:0px;"></div>
+  <div class="chat-input" contenteditable="true" style="outline:0px;" onkeydown="window.dispatchEvent(new CustomEvent('chatsend',{ detail: event}))"></div>
 </div>

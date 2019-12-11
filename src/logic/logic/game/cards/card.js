@@ -1,5 +1,5 @@
-const colors = require('./card-color.js');
-const values = require('./card-value.js');
+const colors = require('./card-color.js.js');
+const values = require('./card-value.js.js');
 
 function calcCompareValue(card){
   const comparevalues = {

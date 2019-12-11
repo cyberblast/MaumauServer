@@ -1,4 +1,4 @@
-import Xhr from '../../engine/xhr.js';
+import Xhr from '../engine/xhr.js';
 export { Server as default }
 
 const Server = {

@@ -12,7 +12,7 @@
   ],
   "main": "src/boot.js",
   "scripts": {
-    "server": "node --harmony src/boot.js",
+    "serve": "node --harmony src/boot.js",
     "call": "node --harmony src/testclient/call.js"
   },
   "repository": {

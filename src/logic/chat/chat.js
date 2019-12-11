@@ -33,7 +33,7 @@ module.exports = class Chat{
    * @return { Message[] } Messages since last poll
    */
   getMessages(client, sinceId){
-    if(sinceId == null) return this.#messages;
+    if(sinceId == null || sinceId === '') return this.#messages;
     const index = this.#index[sinceId];
     if(index === undefined) return [];
     return this.#messages.slice(index+1);

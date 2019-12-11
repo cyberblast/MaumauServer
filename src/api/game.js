@@ -1,5 +1,5 @@
-const gameLogic = require('../logic/game/game');
-const Config = require('@cyberblast/config');
+const gameLogic = require('../logic/logic/game/game');
+const Config = require('./@cyberblast/config');
 
 let currentGame = null;
 
