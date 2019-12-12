@@ -42,6 +42,7 @@ function Component(){
       callback: (element, onHandled, onError) => {
         const filePath = element.hasAttribute('path') ? element.getAttribute('path') : null;
         const args = element.hasAttribute('args') ? element.getAttribute('args') : null;
+        console.log(`Resolving Server component ${filePath}`);
         Xhr.get({ 
           path: filePath, 
           args: args,
@@ -67,7 +68,6 @@ function Component(){
             if(component[action] !== undefined){
               console.log(`Resolving CientScript component ${name}.${action}()`);
               component[action](result => {
-                console.log(`${name}.${action}() resolved to "${result}".`);
                 onHandled(result); 
               }, 
               error => {
