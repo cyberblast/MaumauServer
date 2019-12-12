@@ -1,0 +1,7 @@
+<div class="chat-container">
+    <div class="chat-settings"><span class="checkbox-element" onclick="window.dispatchEvent(new CustomEvent('chat-timestamps',{detail:event}))">show timestamps<span class="checkbox checked" id="cb-timestamps"></span></span></div>
+  <div class="chat-log">
+    <clientScript component="Maumau.Chat" action="board"></clientScript>
+  </div>
+  <div class="chat-input" contenteditable="true" onkeydown="window.dispatchEvent(new CustomEvent('chat-send',{detail:event}))"></div>
+</div>

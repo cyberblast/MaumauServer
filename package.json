@@ -12,7 +12,8 @@
   ],
   "main": "src/boot.js",
   "scripts": {
-    "maumau": "node --harmony src/boot.js"
+    "serve": "node --harmony src/boot.js",
+    "call": "node --harmony src/testclient/call.js"
   },
   "repository": {
     "type": "git",
@@ -26,9 +27,7 @@
     "node": "*"
   },
   "dependencies": {
-    "@cyberblast/config": "^0.0.2",
-    "@cyberblast/webserver": "^0.1.5"
-  },
-  "devDependencies": {},
-  "optionalDependencies": {}
+    "@cyberblast/config": "^0.0.8",
+    "@cyberblast/webserver": "^0.1.8"
+  }
 }

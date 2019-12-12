@@ -1,0 +1,160 @@
+html, body{
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0px;
+  font-family: 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.root{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  font-family: 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+.header{
+  flex: 0 0 50px;
+  display: flex;
+  flex-flow: row;
+  background-color: rgb(66, 189, 0);
+}
+.header-title{
+  flex: 0 1 auto;
+  width: fit-content;
+  font-size: 1.4em;
+  font-weight: 500;
+  line-height: 50px;
+  margin: 0 20px;
+}
+.header-info{
+  flex: 1 1 auto;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 50px;
+  margin: 0 10px;
+  text-align: right;
+}
+.header-user{
+  flex: 0 0 50px;
+}
+.user-avatar{
+  height: 36px;
+  width: 36px;
+  margin: 6px;
+  overflow:hidden;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 36px;
+  font-size: 1.2em;
+  background-color: silver;
+  cursor: pointer;
+}
+
+.below-header{
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+.main-container{
+  height: 100%;
+  flex: 3 3 auto;
+  display: block;
+  padding: 10px;
+  position: relative;
+}
+.chat-container{
+  flex: 1 0 300px;
+  border-left: 1px solid silver;
+  height: 100%;  
+  display: flex;
+  flex-flow: column;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-settings{
+  font-size: 12px;
+  text-align: right;
+}
+.chat-log{
+  flex: 100 1 auto;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.chat-input{
+  /* flex: 1 0 16px; */
+  outline: 0px;
+  height: fit-content;
+  border-top: 1px solid silver;
+  padding: 8px;
+  font-size: 16px;
+}
+.chat-board{
+  display: table;
+  margin: 2px;
+  overflow: hidden;
+}
+.chatItem{
+  display: table-row;
+  font-size: 14px;
+}
+.chatItem span{
+  display: table-cell;
+  padding: 2px;
+}
+.chatTime{
+  font-style: italic;
+}
+.chatSender{
+  font-weight: 600;
+  max-width: 90px;
+  word-wrap: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chatText{
+  word-break: break-word;
+}
+
+.vertical-placeholder{
+  position:absolute;
+  top:0;
+  margin-top: 100px;
+  z-index:-1;
+  transform: rotate(-60deg);
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3em;
+  color:sandybrown;
+}
+
+
+.checkbox-element{
+  cursor: pointer;
+}
+.checkbox{
+  display: inline-block;
+  position: relative;
+  width: 8px;
+  height: 8px;
+  font-size: 12px;
+  border-collapse: collapse;
+  border: 1px solid #333333;
+  margin: 0 2px;
+}
+.checkbox.checked:before {
+  content: '\2714';
+  position: absolute;
+  top: -3px;
+  left: 0px;
+  font-size: 9px;
+}

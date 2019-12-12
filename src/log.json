@@ -1,0 +1,32 @@
+{
+  "categories": ["webserver"],
+  "rules": [
+    {
+      "name": "all",
+      "console": true
+    },
+    {
+      "name": "error",
+      "filePath": "./log/",
+      "severity": "Error"
+    },
+    {
+      "name": "webserver",
+      "category": "webserver",
+      "filePath": "./log/",
+      "severity": "Info"
+    },
+    {
+      "name": "chat",
+      "category": "chat",
+      "filePath": "./log/",
+      "severity": "Info"
+    },
+    {
+      "name": "game",
+      "category": "game",
+      "filePath": "./log/",
+      "severity": "Verbose"
+    }
+  ]
+}

@@ -4,11 +4,11 @@
     "blobCache": false
   },
   "router": {
-    "fileRoot": "./src/client",
-    "apiRoot": "./src/server/api",
+    "fileRoot": "./src/web",
+    "apiRoot": "./src/api",
     "routes": [
-      { "path": "/", "handler": "file", "content": "/index.html" },
       { "path": "/api/:module/:function", "handler": "module"},
+      { "path": "/", "handler": "file", "content": "/index.html" },
       { "path": "*", "handler": "file" }
     ]
   }

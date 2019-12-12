@@ -1,16 +1,31 @@
-var Maumau = (typeof Maumau === "undefined" || !Maumau ) ? {} : Maumau;
-Maumau.Client = (typeof Maumau.Client === "undefined" || !Maumau.Client ) ? {} : Maumau.Client;
-Maumau.Client.Engine = (typeof Maumau.Client.Engine === "undefined" || !Maumau.Client.Engine ) ? {} : Maumau.Client.Engine;
+import Xhr from './xhr.js';
+import DocParser from './docParser.js';
+export default Component;
 
-Maumau.Client.Engine.Component = function(){
+function runOnDocCompleted(callback){
+  let readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+        clearInterval(readyStateCheckInterval);
+        callback();
+    }
+  }, 200);
+}
+
+function Component(){
   let clientComponents = {};
 
   this.registerClientComponent = function(name, component){
-    clientComponents[name] = component;
+    clientComponents[name] = component;    
   }
 
   /**Load server- & client-side computed page components */
   this.load = function(){
+    runOnDocCompleted(() => {
+      loadInternal();
+    });
+  }
+
+  function loadInternal(){
     const start = (typeof performance === "undefined" || !performance ) ? Date.now() : performance.now();
     const parseArgs = {
       document: window.document,
@@ -27,7 +42,8 @@ Maumau.Client.Engine.Component = function(){
       callback: (element, onHandled, onError) => {
         const filePath = element.hasAttribute('path') ? element.getAttribute('path') : null;
         const args = element.hasAttribute('args') ? element.getAttribute('args') : null;
-        Maumau.Client.Engine.Xhr.get({ 
+        console.log(`Resolving Server component ${filePath}`);
+        Xhr.get({ 
           path: filePath, 
           args: args,
           onSuccess: getResult => {
@@ -52,8 +68,11 @@ Maumau.Client.Engine.Component = function(){
             if(component[action] !== undefined){
               console.log(`Resolving CientScript component ${name}.${action}()`);
               component[action](result => {
-                console.log(`${name}.${action}() resolved to "${result}".`);
                 onHandled(result); 
+              }, 
+              error => {
+                onError(`Error in function "${action}" for clientScript component "${name}": ${error}`);
+                onHandled();
               });
             } else {
               onError(`Unable to resolve function name "${action}" for clientScript component "${name}"!`);
@@ -70,7 +89,7 @@ Maumau.Client.Engine.Component = function(){
       }
     });
 
-    const parser = new Maumau.Client.Engine.DocParser();
+    const parser = new DocParser();
     parser.run(parseArgs);
   }
 }

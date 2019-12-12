@@ -1,6 +1,6 @@
-const colors = require('./card-color.js');
-const values = require('./card-value.js');
-const card = require('./card.js');
+const colors = require('./card-color.js.js');
+const values = require('./card-value.js.js');
+const card = require('./card.js.js');
 
 module.exports = class CardPile {
   #cards;
@@ -25,6 +25,20 @@ module.exports = class CardPile {
   takeTop(){
     if( this.count === 0 ) return null;
     return this.#cards.pop(card);
+  }
+  take(card){
+    if( this.count === 0 ) return null;
+    const index = this.#cards.findIndex(c => c.value === card.value && c.color === card.color);
+    if( index < 0 ) return null;
+    return this.#cards.splice(index, 1)[0];
+  }
+  takeIndex(index){
+    if( index < 0 || index >= this.count) return null;
+    return this.#cards.splice(index, 1)[0];
+  }
+  view(index){
+    if( index < 0 || index >= this.count) return null;
+    return this.#cards[index];
   }
   takeRandom(){
     if( this.count === 0 ) return null;
@@ -51,8 +65,17 @@ module.exports = class CardPile {
     }
     this.#cards = newpile;
   }
+  sort(){
+    this.#cards.sort(this.compare)
+  }
+  compare(a, b){
+    return a.compareValue - b.compareValue;
+  }
   showCards(){
-    return this.#cards.slice();
+    return this.#cards.slice()
+  }
+  includes(card){
+    return undefined !== this.#cards.find(c => c.value === card.value && c.color === card.color);
   }
 }
   
