@@ -19,11 +19,25 @@ Please see [this instructions](https://github.com/cyberblast/MaumauServer/wiki/C
 
 To start the game server call `npm run server`. Afterwards you can access it using a browser at: http://127.0.0.1/
 
-To request an api endpoint, use `node call <pathToApiEndpoint>`. E.g. `node call game/state` or `node call game/start`.  
+To manually request an api endpoint from console, use `node call <pathToApiEndpoint>`. E.g. `node call game/state` or `node call game/start`.  
 Using VS Code, you will have to open a second terminal to do that. 
 
 ## Configuration
 
-*Incomplete*
+You can change the server port (default: 80) in `./src/webserver.json` (prior to starting the game server).  
+More details about general web server settings may be available at the webserver repository (see dependencies below).
 
-You can change the server port (default: 80) in `webserver.json` (prior to starting the game server).
+Game rules can be defined in file `./src/game.json`.
+
+Logging can be adjusted in file `./src/log.json`.
+Details regarding logger configuration can be found at its repository (see dependencies below).
+
+## Dependencies
+
+* [cyberblast config](https://github.com/cyberblast/config)
+* [cyberblast webserver](https://github.com/cyberblast/WebServer)
+* [cyberblast logger](https://github.com/cyberblast/logger)
+
+## Legal
+
+Please take note of files [LICENSE](https://raw.githubusercontent.com/cyberblast/MaumauServer/master/LICENSE) and [CONTRIBUTING](https://raw.githubusercontent.com/cyberblast/MaumauServer/master/CONTRIBUTING).
