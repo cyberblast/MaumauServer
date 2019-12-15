@@ -19,6 +19,7 @@ const Xhr = {
   * @typedef XhrArgs
   * @type {object}
   * @property {string} path
+  * @property {string} method
   * @property {?object} options
   * @property {messageCallback} onSuccess
   * @property {messageCallback} onError
@@ -39,7 +40,7 @@ const Xhr = {
         else if(args.onError) args.onError(responseError(xhr));
       }
     }
-    xhr.open(args.body ? 'POST' : 'GET', args.path, true);
+    xhr.open(args.method !== undefined ? args.method : args.body !== undefined ? 'POST' : 'GET', args.path, true);
     xhr.send(args.body);
   }
 }
