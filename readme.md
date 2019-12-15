@@ -1,4 +1,4 @@
-# cyberblast Maumau Server
+# cyberblast Maumau Server <img src="https://raw.githubusercontent.com/cyberblast/MaumauServer/dev/src/web/favicon.ico" align="right" />
 
 _A Node native "Maumau" card game server_
 
@@ -35,8 +35,8 @@ Details regarding logger configuration can be found at its repository (see depen
 ## Dependencies
 
 * [cyberblast config](https://github.com/cyberblast/config)
-* [cyberblast webserver](https://github.com/cyberblast/WebServer)
 * [cyberblast logger](https://github.com/cyberblast/logger)
+* [cyberblast webserver](https://github.com/cyberblast/WebServer)
 
 ## Legal
 
