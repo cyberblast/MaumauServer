@@ -66,7 +66,7 @@ function Component(){
           const component = clientComponents[name];
           if(component !== undefined){
             if(component[action] !== undefined){
-              console.log(`Resolving CientScript component ${name}.${action}()`);
+              console.log(`Resolving ClientScript component ${name}.${action}()`);
               component[action](result => {
                 onHandled(result); 
               }, 

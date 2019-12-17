@@ -4,9 +4,13 @@ _A Node native "Maumau" card game server_
 
 This is a project I mainly like to work at when I like to do something .. else. There is no deadline or any need to complete this.
 
-Goal: Develop a fully playable multiplayer [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(card_game)) card game.
+Primary goal: Develop a fully playable multiplayer [Maumau](https://en.wikipedia.org/wiki/Mau-Mau_(card_game)) card game.
 
 Secondary goal: I'd like to develop a mostly native node server. That means - I don't like to use existing modules/packages/extensions as far as possible.
+
+Secondary goal: The whole thing is rather an exercise. Trying to learn things and get to new topics. Basic research as well as experimenting.
+
+Secondary goal: Create separate repositories for reusable components (those listed as 'dependencies' below).
 
 ## Contribution & Collaboration
 
@@ -34,9 +38,12 @@ Details regarding logger configuration can be found at its repository (see depen
 
 ## Dependencies
 
-* [cyberblast config](https://github.com/cyberblast/config)
-* [cyberblast logger](https://github.com/cyberblast/logger)
-* [cyberblast webserver](https://github.com/cyberblast/WebServer)
+* [cyberblast config](https://github.com/cyberblast/config)  
+  A simple json config file loader for node.js
+* [cyberblast logger](https://github.com/cyberblast/logger)  
+  A simple logger for node.js
+* [cyberblast webserver](https://github.com/cyberblast/WebServer)  
+  A minimal node-based web server
 
 ## Legal
 

@@ -27,7 +27,6 @@
     "node": "*"
   },
   "dependencies": {
-    "@cyberblast/config": "^0.0.8",
-    "@cyberblast/webserver": "^0.1.8"
+    "@cyberblast/config": "^0.0.8"
   }
 }

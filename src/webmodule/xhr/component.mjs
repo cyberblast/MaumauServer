@@ -1,6 +1,5 @@
 export { Xhr as default }
 
-
 function responseError(xhr) {
   const headerError = xhr.getResponseHeader('Error');
   const message = headerError || xhr.responseText;

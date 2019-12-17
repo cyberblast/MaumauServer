@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Maumau</title>
+    <script type="module" src="/$component/server"></script>
+    <script type="module" src="/$component/chat"></script>
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body>
+    <div class="root">
+      <server-snippet src="/markup/header.html"></server-snippet>
+      <div class="below-header">
+        <div class="main-container">
+          <server-snippet src="/markup/home.html"></server-snippet>
+        </div>
+        <!-- <server-snippet src="/markup/chat.html"></server-snippet> -->
+      </div>
+    </div>
+  </body>
+</html>
