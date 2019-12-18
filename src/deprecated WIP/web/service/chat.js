@@ -41,6 +41,7 @@ function chatPoll(){
   });
   chatPollTimer = window.setTimeout(chatPoll, polltime);
 }
+
 function pad(num, size) {
   var s = "00" + num;
   return s.substr(s.length-size);
@@ -70,7 +71,7 @@ function chatLogUpdate(serializedItems){
 }
 
 function error(e){
-  console.log(e);
+  console.error(e);
 }
 
 window.addEventListener('chat-send', function(e){
