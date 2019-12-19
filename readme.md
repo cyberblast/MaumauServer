@@ -1,4 +1,4 @@
-# cyberblast Maumau Server <img src="https://raw.githubusercontent.com/cyberblast/MaumauServer/dev/src/web/favicon.ico" align="right" />
+# cyberblast Maumau Server <img src="https://raw.githubusercontent.com/cyberblast/MaumauServer/dev/src/static/favicon.ico" align="right" />
 
 _A Node native "Maumau" card game server_
 
@@ -23,8 +23,8 @@ Please see [this instructions](https://github.com/cyberblast/MaumauServer/wiki/C
 
 To start the game server call `npm run server`. Afterwards you can access it using a browser at: http://127.0.0.1/
 
-To manually request an api endpoint from console, use `node call <pathToApiEndpoint>`. E.g. `node call game/state` or `node call game/start`.  
-Using VS Code, you will have to open a second terminal to do that. 
+~~To manually request an api endpoint from console, use `node call <pathToApiEndpoint>`. E.g. `node call game/state` or `node call game/start`.  
+Using VS Code, you will have to open a second terminal to do that.~~
 
 ## Configuration
 
