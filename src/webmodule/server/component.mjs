@@ -1,6 +1,12 @@
 import Xhr from './xhr';
 
 class ServerSnippet extends HTMLElement {
+  initialized;
+  
+  constructor() {
+    super();
+  }
+
   get src() {
     return this.getAttribute('src');
   }
@@ -22,10 +28,6 @@ class ServerSnippet extends HTMLElement {
     }
   }
 
-  constructor() {
-    super();
-  }
-  initialized;
   connectedCallback() {
     //console.log(`ServerSnippet.connectedCallback`);
     // this.innerHTML = "loading...";

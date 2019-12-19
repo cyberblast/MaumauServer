@@ -3,6 +3,7 @@
     <title>Maumau</title>
     <script type="module" src="/$component/server"></script>
     <script type="module" src="/$component/chat"></script>
+    <script defer src="index.js"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -12,7 +13,7 @@
         <div class="main-container">
           <server-snippet src="/markup/home.html"></server-snippet>
         </div>
-        <server-snippet src="/markup/chat.html"></server-snippet>
+        <server-snippet src="/markup/chat.html" class="chat-container"></server-snippet>
       </div>
     </div>
   </body>

@@ -37,7 +37,7 @@ export default class ChatBoard extends HTMLElement {
         const items = JSON.parse(serializedItems);
         if(items.length !== undefined && items.length > 0){
           items.forEach(i => {
-            board.innerHTML = board.innerHTML + formatChatItem(i);
+            board.innerHTML = board.innerHTML + this.formatChatItem(i);
             this.lastId = i.id;
           });
           window.document.getElementById(this.lastId).scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -46,6 +46,17 @@ export default class ChatBoard extends HTMLElement {
     }
     this.chatPollTimer = window.setTimeout(this.chatPoll, this.polltime);
   }.bind(this);
+
+  send(text){
+    console.log('sending:', text);
+    window.clearTimeout(this.chatPollTimer);    
+    Xhr.get({
+      path: '/$api/chat/send',
+      body: `{"lastId":"${this.lastId}","text": "${text}"}`,
+      onSuccess: this.chatLogUpdate,
+      onError: this.error
+    });
+  }
 
   error = function(e){
     console.error(e);
