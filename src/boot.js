@@ -1,2 +1,4 @@
-const server = require('@cyberblast/webserver');
-server.start('./src/webserver.json', './src/log.json');
+const { WebServer } = require('@cyberblast/webserver');
+
+const server = new WebServer('./src/webserver.json', './src/log.json');
+server.start();

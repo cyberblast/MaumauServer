@@ -22,7 +22,7 @@ async function call(){
   const config = new Config('./src/webserver.json');
   const settings = await config.load();
 
-  const url = `http://127.0.0.1:${settings.server.port}/api`;
+  const url = `http://127.0.0.1:${settings.server.port}`;
 
   if( process.argv.length == 3){  
     http.get(`${url}/${path}`, function(res) {

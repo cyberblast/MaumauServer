@@ -13,7 +13,7 @@
   "main": "src/boot.js",
   "scripts": {
     "serve": "node --harmony src/boot.js",
-    "call": "node --harmony src/testclient/call.js"
+    "call": "node --harmony call.js"
   },
   "repository": {
     "type": "git",
